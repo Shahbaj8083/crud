@@ -18,5 +18,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/export-users', [DashboardController::class, 'exportUsers'])->name('export.users');
         Route::post('/import-users', [DashboardController::class, 'importUsers'])->name('import.users');
         Route::get('admin/users', [AdminController::class, 'index'])->name('admin.users');
+        Route::delete('/users/{id}', [AdminController::class, 'delete'])->name('users.delete');
+        Route::get('admin/edit', [AdminController::class, 'edit'])->name('admin.edit');
     });
 });

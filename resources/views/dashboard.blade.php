@@ -82,8 +82,9 @@
                                 <td>{{ $user->username }}</td>
                                 <td>{{ $user->mobile_number }}</td>
                                 <td>
-                                    <a href="#" class="btn btn-warning btn-sm">Edit</a>
-                                    <form action="" method="POST" style="display:inline;">
+                                    <a href="{{ URL::to('edit') }}" class="btn btn-warning btn-sm">Edit</a>
+                                    <form action="{{ route('users.delete', $user->id) }}" method="POST"
+                                        style="display:inline;">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger btn-sm">Delete</button>

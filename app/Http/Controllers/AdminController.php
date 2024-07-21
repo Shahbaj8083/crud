@@ -21,4 +21,12 @@ class AdminController extends Controller
         }
         return view('dashboard', compact('users'));
     }
+
+    public function delete($id)
+    {
+        $user = User::findOrFail($id);
+        $user->delete();
+        # Redirect back to the dashboard with a success message
+        return redirect()->route('dashboard')->with('success', 'User deleted successfully.');
+    }
 }
