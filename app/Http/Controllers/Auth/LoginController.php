@@ -29,7 +29,7 @@ class LoginController extends Controller
 
         if ($user && Hash::check($request->password, $user->password)) {
             Auth::login($user);
-            return redirect()->intended('dashboard');
+            return redirect()->route('dashboard');
         }
 
         return back()->withErrors(['login' => 'The provided credentials do not match our records.']);
